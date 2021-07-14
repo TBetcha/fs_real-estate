@@ -15,7 +15,8 @@ obj/
 ### fsharp ###
 lib/debug
 lib/release
-Debug
+**Debug
+**bin
 *.suo
 *.user
 obj
@@ -24,7 +25,7 @@ bin
 *.exe
 !.paket/paket.bootstrapper.exe
 .ionide/
-appsettings.json
+**appsettings.json
 
 ### macOS ###
 # General
