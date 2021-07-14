@@ -1,0 +1,4 @@
+/Users/troyboettger/Code/F#/todo/Server/Web/Views/obj/Debug/net5.0/todo.fsprojAssemblyReference.cache
+/Users/troyboettger/Code/F#/todo/Server/Web/Views/obj/Debug/net5.0/todo.AssemblyInfoInputs.cache
+/Users/troyboettger/Code/F#/todo/Server/Web/Views/obj/Debug/net5.0/todo.AssemblyInfo.fs
+/Users/troyboettger/Code/F#/todo/Server/Web/Views/obj/Debug/net5.0/todo.App.MvcApplicationPartsAssemblyInfo.cache
