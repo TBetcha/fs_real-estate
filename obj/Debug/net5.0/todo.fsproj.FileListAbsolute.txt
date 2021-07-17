@@ -40,3 +40,5 @@
 /Users/troyboettger/Code/F#/todo/bin/Debug/net5.0/todo.App.pdb
 /Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/TODO.genruntimeconfig.cache
 /Users/troyboettger/Code/F#/todo/bin/Debug/net5.0/NodaTime.Serialization.JsonNet.dll
+/Users/troyboettger/Code/F#/todo/bin/Debug/net5.0/dbup-core.dll
+/Users/troyboettger/Code/F#/todo/bin/Debug/net5.0/dbup-postgresql.dll

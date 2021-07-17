@@ -82,6 +82,16 @@
               "target": "Package",
               "version": "[0.3.*, )",
               "generatePathProperty": true
+            },
+            "dbup-core": {
+              "target": "Package",
+              "version": "[4.5.0, )",
+              "generatePathProperty": true
+            },
+            "dbup-postgresql": {
+              "target": "Package",
+              "version": "[4.5.0, )",
+              "generatePathProperty": true
             }
           },
           "imports": [

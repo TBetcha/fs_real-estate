@@ -1,0 +1,21 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE IF NOT EXISTS users (
+  id VARCHAR(255) NOT NULL,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS todos (
+  id UUID NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  content VARCHAR,
+  completed BOOLEAN NOT NULL,
+  user_id VARCHAR(255) NOT NULL,
+
+  CONSTRAINT FK_todos_users FOREIGN KEY(user_id) REFERENCES users(id),
+  PRIMARY KEY (id)
+
+);

@@ -26,5 +26,7 @@
     <PkgMicrosoft_Extensions_Configuration_Json Condition=" '$(PkgMicrosoft_Extensions_Configuration_Json)' == '' ">/Users/troyboettger/.nuget/packages/microsoft.extensions.configuration.json/5.0.0</PkgMicrosoft_Extensions_Configuration_Json>
     <PkgGiraffe_ViewEngine Condition=" '$(PkgGiraffe_ViewEngine)' == '' ">/Users/troyboettger/.nuget/packages/giraffe.viewengine/1.3.0</PkgGiraffe_ViewEngine>
     <PkgGiraffe Condition=" '$(PkgGiraffe)' == '' ">/Users/troyboettger/.nuget/packages/giraffe/5.0.0-rc-6</PkgGiraffe>
+    <Pkgdbup-core Condition=" '$(Pkgdbup-core)' == '' ">/Users/troyboettger/.nuget/packages/dbup-core/4.5.0</Pkgdbup-core>
+    <Pkgdbup-postgresql Condition=" '$(Pkgdbup-postgresql)' == '' ">/Users/troyboettger/.nuget/packages/dbup-postgresql/4.5.0</Pkgdbup-postgresql>
   </PropertyGroup>
 </Project>

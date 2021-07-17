@@ -7,6 +7,7 @@
 # .NET Core build folders
 bin/
 obj/
+*/obj/*
 
 # Common node modules locations
 /node_modules
@@ -459,3 +460,8 @@ FodyWeavers.xsd
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
+obj/fsac.cache
+obj/Debug/net5.0/TODO.fsprojAssemblyReference.cache
+obj/Debug/net5.0/todo.fsproj.CoreCompileInputs.cache
+.gitignore
+obj/project.nuget.cache

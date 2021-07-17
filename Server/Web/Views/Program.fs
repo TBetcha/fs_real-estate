@@ -13,6 +13,8 @@ open Giraffe
 //open Giraffe.Serialization.Json
 open Npgsql
 open NodaTime.Serialization.JsonNet
+open DbUp
+open DbUp.ScriptProviders
 
 // ---------------------------------
 // Models
@@ -80,7 +82,19 @@ let configureAppConfiguration (context:WebHostBuilderContext)(config:IConfigurat
   config 
     .AddJsonFile("appsettings.json",false,true)  
     .AddJsonFile(sprintf "appsettings.%s.json" context.HostingEnvironment.EnvironmentName, true)
-    .AddEnvironmentVariables() |> ignore
+    .AddEnvironmentVariables("ASPNETCORE") |> ignore
+    
+
+let dbUpgrade(connectionString:string) = 
+  let fs = FileSystemScriptOptions()
+  printfn"%A"connectionString
+  fs.IncludeSubDirectories <- true
+  DeployChanges.To
+    .PostgresqlDatabase(connectionString)
+    .WithScriptsFromFileSystem("Server/Migrations",fs)
+    .LogToConsole()
+    .Build()
+    .PerformUpgrade()
 
 let configureCors (builder : CorsPolicyBuilder) =
   builder
@@ -104,15 +118,18 @@ let configureApp (app : IApplicationBuilder) =
       .UseGiraffe(Todo.Web.API.Routing.routes)
 
 let configureServices (services : IServiceCollection) : unit=
+  let env = services.BuildServiceProvider().GetRequiredService<IWebHostEnvironment>()
   let config = services.BuildServiceProvider().GetRequiredService<IConfiguration>()
   services.AddCors()    |> ignore
   services.AddGiraffe() |> ignore
+  printfn "Migrations: %A" <| dbUpgrade (config.GetConnectionString("conn"))
+  printfn "%A" <|config.GetConnectionString("conn")
   // let serializer = NewtonsoftJsonSerializer.DefaultSettings
   // serializer.Converters.Add(NodaPatternConverter<NodaTime.ZonedDateTime>(NodaTime.Text.ZonedDateTimePattern.CreateWithInvariantCulture("yyyy-MM-ddTHH:mm:sso<g>",NodaTime.DatetimeZoneProvider.Tzdb)))
   ignore <| NpgsqlConnection.GlobalTypeMapper.UseNodaTime()
   ignore <|services
      .AddTransient<Todo.Util.DB.IConnectionFactory>(fun _ -> 
-      Todo.Util.DB.ConnectionFactory(config.GetConnectionString("connectionString")) :>_
+      Todo.Util.DB.ConnectionFactory(config.GetConnectionString("conn")) :>_
     )
 
 
