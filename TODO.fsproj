@@ -18,7 +18,11 @@
     <PackageReference Include="Ply" Version="0.3.*" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Server/Util/types.fs" />
     <Compile Include="Server/Util/db.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Server/Web/Handlers/users.fs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Server/Web/Routes/api/routing.fs" />
