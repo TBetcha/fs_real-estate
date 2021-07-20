@@ -15,7 +15,7 @@ let userRegister: HttpHandler =
        // return! ctx.WriteTextAsync user.First_name
         let db = ctx.GetService<Todo.Util.DB.IConnectionFactory>()
         let! res = db.WithConnection <| fun conn -> async {
-          let! storedUser = Todo.API.Context.User.storeUser conn user 
+          let! storedUser = Todo.DAL.User.storeUser conn user 
           return storedUser
         }
          return! ctx.WriteJsonAsync user

@@ -24,7 +24,7 @@
     <Compile Include="Server/Util/db.fs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Server/Web/Routes/api/context/user.fs" />
+    <Compile Include="Server/DAL/user.fs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Server/Web/Handlers/users.fs" />

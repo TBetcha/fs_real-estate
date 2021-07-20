@@ -1,4 +1,4 @@
-module Todo.API.Context.User
+module Todo.DAL.User
 open Npgsql
 
 let storeUser (conn:NpgsqlConnection) (user:Todo.Util.Types.User) = async {
