@@ -128,9 +128,11 @@ let configureServices (services : IServiceCollection) : unit=
   // serializer.Converters.Add(NodaPatternConverter<NodaTime.ZonedDateTime>(NodaTime.Text.ZonedDateTimePattern.CreateWithInvariantCulture("yyyy-MM-ddTHH:mm:sso<g>",NodaTime.DatetimeZoneProvider.Tzdb)))
   ignore <| NpgsqlConnection.GlobalTypeMapper.UseNodaTime()
   ignore <|services
-     .AddTransient<Todo.Util.DB.IConnectionFactory>(fun _ -> 
+  // services.AddSingleton<Todo.Util.DB.IConnectionFactory>(fun _ -> Todo.Util.DB.ConnectionFactory(config.GetConnectionString("conn")))
+     .AddTransient<Todo.Util.DB.IConnectionFactory>(fun _ ->
       Todo.Util.DB.ConnectionFactory(config.GetConnectionString("conn")) :>_
-    )
+     )
+
 
 
 let configureLogging (builder : ILoggingBuilder) =

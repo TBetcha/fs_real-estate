@@ -5,6 +5,8 @@
     <EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.90" />
+    <PackageReference Include="Dapper-NodaTime" Version="0.1.0" />
     <PackageReference Include="dbup-core" Version="4.5.0" />
     <PackageReference Include="dbup-postgresql" Version="4.5.0" />
     <PackageReference Include="Giraffe" Version="5.0.0-rc-6" />
@@ -20,6 +22,9 @@
   <ItemGroup>
     <Compile Include="Server/Util/types.fs" />
     <Compile Include="Server/Util/db.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Server/Web/Routes/api/context/user.fs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Server/Web/Handlers/users.fs" />

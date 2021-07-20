@@ -465,3 +465,4 @@ obj/Debug/net5.0/TODO.fsprojAssemblyReference.cache
 obj/Debug/net5.0/todo.fsproj.CoreCompileInputs.cache
 .gitignore
 obj/project.nuget.cache
+obj/fsac.cache

@@ -28,5 +28,7 @@
     <PkgGiraffe Condition=" '$(PkgGiraffe)' == '' ">/Users/troyboettger/.nuget/packages/giraffe/5.0.0-rc-6</PkgGiraffe>
     <Pkgdbup-core Condition=" '$(Pkgdbup-core)' == '' ">/Users/troyboettger/.nuget/packages/dbup-core/4.5.0</Pkgdbup-core>
     <Pkgdbup-postgresql Condition=" '$(Pkgdbup-postgresql)' == '' ">/Users/troyboettger/.nuget/packages/dbup-postgresql/4.5.0</Pkgdbup-postgresql>
+    <PkgDapper Condition=" '$(PkgDapper)' == '' ">/Users/troyboettger/.nuget/packages/dapper/2.0.90</PkgDapper>
+    <PkgDapper-NodaTime Condition=" '$(PkgDapper-NodaTime)' == '' ">/Users/troyboettger/.nuget/packages/dapper-nodatime/0.1.0</PkgDapper-NodaTime>
   </PropertyGroup>
 </Project>

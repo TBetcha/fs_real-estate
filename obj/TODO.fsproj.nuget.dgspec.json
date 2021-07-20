@@ -33,6 +33,16 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.90, )",
+              "generatePathProperty": true
+            },
+            "Dapper-NodaTime": {
+              "target": "Package",
+              "version": "[0.1.0, )",
+              "generatePathProperty": true
+            },
             "FSharp.Core": {
               "target": "Package",
               "version": "[5.0.0, )",
