@@ -20,3 +20,16 @@ let userRegister: HttpHandler =
         }
          return! ctx.WriteJsonAsync user
         }) 
+
+let getUserByUsername (user:string): HttpHandler = 
+  handleContext (
+    fun ctx ->
+      task{
+        let db = ctx.GetService<Todo.Util.DB.IConnectionFactory>()
+        let! res = db.WithConnection <| fun conn -> async {
+          let! retrievedUser = Todo.DAL.User.getUser conn user
+          return  retrievedUser.[0]
+        }
+        return! ctx.WriteJsonAsync res
+      }
+  )

@@ -30,5 +30,6 @@
     <Pkgdbup-postgresql Condition=" '$(Pkgdbup-postgresql)' == '' ">/Users/troyboettger/.nuget/packages/dbup-postgresql/4.5.0</Pkgdbup-postgresql>
     <PkgDapper Condition=" '$(PkgDapper)' == '' ">/Users/troyboettger/.nuget/packages/dapper/2.0.90</PkgDapper>
     <PkgDapper-NodaTime Condition=" '$(PkgDapper-NodaTime)' == '' ">/Users/troyboettger/.nuget/packages/dapper-nodatime/0.1.0</PkgDapper-NodaTime>
+    <PkgBCrypt_Net-Next Condition=" '$(PkgBCrypt_Net-Next)' == '' ">/Users/troyboettger/.nuget/packages/bcrypt.net-next/4.0.2</PkgBCrypt_Net-Next>
   </PropertyGroup>
 </Project>

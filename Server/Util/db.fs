@@ -17,7 +17,7 @@ type private Paramaters = System.Collections.Generic.IDictionary<string, obj>
 let taskToAsync<'a> : System.Threading.Tasks.Task<'a> -> Async<'a> = Async.AwaitTask
 let taskToAsync' : System.Threading.Tasks.Task -> Async<unit> = Async.AwaitTask
 
-let readerToDict (reader:Npgsql.NpgsqlDataReader) = 
+let readerToDict (reader:System.Data.Common.DbDataReader) = 
   let mutable prefix = ""
   let mapping = dict <| [
     for i in [0..reader.FieldCount-1] do

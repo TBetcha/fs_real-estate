@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ckZpIUbfoZK+5LAcaFgIA54oz9QaKgu0+/M2mgRNG6QBouHuUMnXZdYm5AaO9Eyo4X8vbARx0DzMSRCF4P3erg==",
+  "dgSpecHash": "iTCaHrq6UuWsxIQJ3a137ttppJGgFfwQuxNFqwfnSHJZ1A9iK0LQqwT1rl0pgbp38R9aoAfSiJakHIlVDGBLFw==",
   "success": true,
   "projectFilePath": "/Users/troyboettger/Code/F#/todo/TODO.fsproj",
   "expectedPackageFiles": [
+    "/Users/troyboettger/.nuget/packages/bcrypt.net-next/4.0.2/bcrypt.net-next.4.0.2.nupkg.sha512",
     "/Users/troyboettger/.nuget/packages/dapper/2.0.90/dapper.2.0.90.nupkg.sha512",
     "/Users/troyboettger/.nuget/packages/dapper-nodatime/0.1.0/dapper-nodatime.0.1.0.nupkg.sha512",
     "/Users/troyboettger/.nuget/packages/dbup-core/4.5.0/dbup-core.4.5.0.nupkg.sha512",
