@@ -28,7 +28,7 @@ let getUserByUsername (user:string): HttpHandler =
         let db = ctx.GetService<Todo.Util.DB.IConnectionFactory>()
         let! res = db.WithConnection <| fun conn -> async {
           let! retrievedUser = Todo.DAL.User.getUser conn user
-          return  retrievedUser.[0]
+          return Seq.tryExactlyOne retrievedUser
         }
         return! ctx.WriteJsonAsync res
       }
