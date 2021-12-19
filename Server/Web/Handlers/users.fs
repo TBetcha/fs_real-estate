@@ -5,7 +5,7 @@ open FSharp.Control.Tasks
 open System.Linq
 open FSharp.Data
 open Giraffe
-
+open Cribs.Types.Users
 
 let userRegister: HttpHandler = 
   handleContext(
@@ -13,23 +13,40 @@ let userRegister: HttpHandler =
       task{
         let! (user:Cribs.Types.Users.User) = ctx.BindModelAsync<Cribs.Types.Users.User>()
         let db = ctx.GetService<Cribs.Util.DB.IConnectionFactory>()
+        let dal = ctx.GetService<Cribs.DAL.User.IUserRepo>()
         let! res = db.WithConnection <| fun conn -> async {
-          let! storedUser = Cribs.DAL.User.storeUser conn user
+          let! storedUser = dal.storeUser conn user
           return storedUser
         }
         return! ctx.WriteJsonAsync user
       }) 
 
-let getUserByUsername: HttpHandler = 
+let getUserByUsername : HttpHandler = 
   handleContext (
     fun ctx ->
       task{
         let db = ctx.GetService<Cribs.Util.DB.IConnectionFactory>()
-        let! temp = ctx.BindJsonAsync<string>()
+        let dal = ctx.GetService<Cribs.DAL.User.IUserRepo>()
+        let! temp = ctx.BindJsonAsync<userQuery>()
         let! res = db.WithConnection <| fun conn -> async {
-          let! retrievedUser = Cribs.DAL.User.getUser conn temp
-          return Seq.tryExactlyOne retrievedUser
+          let! retrievedUser = dal.getUserByUsername conn temp.username
+          return  retrievedUser
         }
         return! ctx.WriteJsonAsync res
       }
   )
+
+//test
+// let getStuff : HttpHandler = 
+//   handleContext(
+//     fun ctx -> 
+//       task{
+//         let db = ctx.GetService<Cribs.Util.DB.IConnectionFactory>()
+//         let dal = ctx.GetService<Cribs.DAL.User.IUserRepo>()
+//         let! res = db.WithConnection <| fun conn -> async {
+//           let! u = dal.getStuff conn "sdf"
+//           return u
+//         }
+//         return! ctx.WriteJsonAsync res
+//       }
+//   )

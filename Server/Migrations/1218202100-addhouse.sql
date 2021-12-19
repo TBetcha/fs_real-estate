@@ -1,3 +1,4 @@
+-- I dropped this and remade it, no data was in so no harm had to change column types
 CREATE TABLE IF NOT EXISTS users (
   id UUID NOT NULL,
   username VARCHAR(255) NOT NULL,

@@ -36,11 +36,10 @@ let readerToDict (reader:System.Data.Common.DbDataReader) =
     getDouble=fun k -> reader.GetDouble(mapping.[k]) |> double
     getDoubleN=fun k ->if reader.IsDBNull(mapping.[k]) then None else Some (reader.GetDouble(mapping.[k]) |> double)
     getString=fun k -> reader.GetString(mapping.[k])
-    getString=fun k -> if reader.IsDBNull(mapping.[k]) then None else Some (reader.GetString(mapping.[k]))
+    getStringN=fun k -> if reader.IsDBNull(mapping.[k]) then None else Some (reader.GetString(mapping.[k]))
   |}
 
 
-//run with Async.AwaitTask and see if op takes longer
 let private _executeNonQuery (connection:NpgsqlConnection) (query:string) (parameters:Paramaters): int Async = async {
   use command = connection.CreateCommand() 
   command.CommandText <- query 

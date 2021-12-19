@@ -16,9 +16,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Server/DAL/user.fs" />
+    <Compile Include="Server/DAL/house.fs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Server/Web/Handlers/users.fs" />
+  <Compile Include="Server/Web/Handlers/houses.fs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Server/Web/Routes/api/routing.fs" />

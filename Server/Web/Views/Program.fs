@@ -129,10 +129,11 @@ let configureServices (services : IServiceCollection) : unit=
   ignore <| NpgsqlConnection.GlobalTypeMapper.UseNodaTime()
   ignore <|services
   // services.AddSingleton<Todo.Util.DB.IConnectionFactory>(fun _ -> Todo.Util.DB.ConnectionFactory(config.GetConnectionString("conn")))
+     .AddSingleton<Cribs.DAL.User.IUserRepo>()
+     .AddSingleton<Cribs.DAL.House.IHouseRepo>()
      .AddTransient<Cribs.Util.DB.IConnectionFactory>(fun _ ->
       Cribs.Util.DB.ConnectionFactory(config.GetConnectionString("conn")) :>_
-     )
-
+     ) 
 
 
 let configureLogging (builder : ILoggingBuilder) =

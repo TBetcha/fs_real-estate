@@ -8,18 +8,18 @@ let routes: HttpHandler =
   choose [
       choose [
             route "/"  
-            route "/hello/"            ]
+            route "/hello/" ]
       subRoute "/api"
       <| choose [
               subRoute "/users"
                   <| choose [
                       route "/register" >=> Cribs.Handlers.Users.userRegister 
-                      GET >=> route "/get" >=> Cribs.Handlers.Users.getUserByUsername
+                      route "/getuser" >=> Cribs.Handlers.Users.getUserByUsername
                     ]
-              subRoute "/v2"
+              subRoute "/houses"
                   <| choose [
-                      route "/foo" >=> text "Foo 2"
-                      route "/bar" >=> text "Bar 2" ] ]]
+                      POST >=> route "/add" >=> Cribs.Handlers.Houses.addHouse
+                      GET >=> route "/bar" >=> text "Bar 2" ] ]]
 
 // let routes: HttpHandler =
 //     choose [
