@@ -1,0 +1,17 @@
+source https://api.nuget.org/v3/index.json
+
+nuget FSharp.Core
+nuget BCrypt.Net-Next 4.0.2
+nuget Dapper 2.0.90
+nuget Dapper-NodaTime 0.1.0
+nuget dbup-core 4.5.0
+nuget dbup-postgresql 4.5.0
+nuget Giraffe 5.0.0-rc-6 prerelease
+nuget Giraffe.ViewEngine >= 1.3.0
+nuget Microsoft.Extensions.Configuration.Json 5.0.0
+nuget Newtonsoft.Json 13.0.1
+nuget NodaTime 3.0.5
+nuget NodaTime.Serialization.JsonNet 3.0.0
+nuget Npgsql 5.0.7
+nuget Npgsql.NodaTime 5.0.7
+nuget Ply >= 0.3.0

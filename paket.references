@@ -1,0 +1,15 @@
+BCrypt.Net-Next
+Dapper
+Dapper-NodaTime
+dbup-core
+dbup-postgresql
+Giraffe
+Giraffe.ViewEngine
+Microsoft.Extensions.Configuration.Json
+Newtonsoft.Json
+NodaTime
+NodaTime.Serialization.JsonNet
+Npgsql
+Npgsql.NodaTime
+Ply
+FSharp.Core
