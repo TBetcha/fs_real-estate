@@ -1,4 +1,4 @@
-module Todo.Program
+module Cribs.Program
 
 open System
 open System.IO
@@ -115,7 +115,7 @@ let configureApp (app : IApplicationBuilder) =
           .UseHttpsRedirection())
       .UseCors(configureCors)
       .UseStaticFiles()
-      .UseGiraffe(Todo.Web.API.Routing.routes)
+      .UseGiraffe(Cribs.Web.API.Routing.routes)
 
 let configureServices (services : IServiceCollection) : unit=
   let env = services.BuildServiceProvider().GetRequiredService<IWebHostEnvironment>()
@@ -129,8 +129,8 @@ let configureServices (services : IServiceCollection) : unit=
   ignore <| NpgsqlConnection.GlobalTypeMapper.UseNodaTime()
   ignore <|services
   // services.AddSingleton<Todo.Util.DB.IConnectionFactory>(fun _ -> Todo.Util.DB.ConnectionFactory(config.GetConnectionString("conn")))
-     .AddTransient<Todo.Util.DB.IConnectionFactory>(fun _ ->
-      Todo.Util.DB.ConnectionFactory(config.GetConnectionString("conn")) :>_
+     .AddTransient<Cribs.Util.DB.IConnectionFactory>(fun _ ->
+      Cribs.Util.DB.ConnectionFactory(config.GetConnectionString("conn")) :>_
      )
 
 

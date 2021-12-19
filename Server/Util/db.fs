@@ -1,4 +1,4 @@
-module Todo.Util.DB
+module Cribs.Util.DB
 
 open Npgsql
 open Npgsql.TypeMapping

@@ -1,0 +1,31 @@
+root=true
+
+[*.fs]
+indent_size = 2
+fsharp_space_after_comma=false
+fsharp_space_before_semicolon=false
+fsharp_space_before_semicolon=false
+fsharp_space_before_colon=false
+fsharp_array_or_list_multiline_formatter=character_width
+fsharp_space_before_parameter=true
+max_line_length=140
+fsharp_max_if_then_else_short_width=80
+fsharp_max_infix_operator_expression=80
+fsharp_max_value_binding_width=120
+fsharp_max_function_binding_width=120
+fsharp_max_dot_get_expression_width=120
+
+[*.fsx]
+indent_size = 2
+fsharp_space_after_comma=false
+fsharp_space_before_semicolon=false
+fsharp_space_before_semicolon=false
+fsharp_space_before_colon=false
+fsharp_array_or_list_multiline_formatter=character_width
+fsharp_space_before_parameter=true
+max_line_length=140
+fsharp_max_if_then_else_short_width=80
+fsharp_max_infix_operator_expression=80
+fsharp_max_value_binding_width=120
+fsharp_max_function_binding_width=120
+fsharp_max_dot_get_expression_width=120      

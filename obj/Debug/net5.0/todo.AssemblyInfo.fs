@@ -7,11 +7,11 @@ open System
 open System.Reflection
 
 
-[<assembly: System.Reflection.AssemblyCompanyAttribute("todo.App")>]
+[<assembly: System.Reflection.AssemblyCompanyAttribute("cribs.App")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
 [<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")>]
-[<assembly: System.Reflection.AssemblyProductAttribute("todo.App")>]
-[<assembly: System.Reflection.AssemblyTitleAttribute("todo.App")>]
+[<assembly: System.Reflection.AssemblyProductAttribute("cribs.App")>]
+[<assembly: System.Reflection.AssemblyTitleAttribute("cribs.App")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]
 do()

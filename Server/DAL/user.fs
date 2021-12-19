@@ -1,9 +1,10 @@
-module Todo.DAL.User
+module Cribs.DAL.User
 open Npgsql
 open BCrypt.Net
-open Todo.Util.Types
+open Cribs.Types.Users
+open Cribs.Types.House
 
-let storeUser (conn:NpgsqlConnection) (user:Todo.Util.Types.User) = async {
+let storeUser (conn:NpgsqlConnection) (user:'T) = async {
   let command = conn.CreateCommand()
   command.CommandText <- "
     INSERT INTO users (
@@ -21,7 +22,7 @@ let storeUser (conn:NpgsqlConnection) (user:Todo.Util.Types.User) = async {
   ignore <| command.ExecuteNonQuery()
 }
 
-let getUser (conn: NpgsqlConnection) (user: string):Async<User[]> = async  {
+let getUser (conn: NpgsqlConnection) (user: string):Async<User list>  = async  {
   use command = conn.CreateCommand()
   command.CommandText <- "
   SELECT
@@ -37,9 +38,8 @@ let getUser (conn: NpgsqlConnection) (user: string):Async<User[]> = async  {
   //           yield [for i in [0..dataReader.FieldCount-1] -> dataReader.[i]]
   //   } |> ignore
   use reader = command.ExecuteReader()
-  return [|
-    while reader.Read() do
-      let record = Todo.Util.DB.readerToDict reader
+  return  [
+      let record = Cribs.Util.DB.readerToDict reader
       yield {
         Id = record.getString("id") 
         Username = record.getString("username") 
@@ -47,23 +47,22 @@ let getUser (conn: NpgsqlConnection) (user: string):Async<User[]> = async  {
         Last_name = record.getString("last_name") 
         Password = record.getString("password") 
       }
-  |]
- 
-}
+  ]
+} 
 
-let addTodo (conn: NpgsqlConnection) (todo:Todo.Util.Types.Todo) (user:Todo.Util.Types.User)= async {
-  use command = conn.CreateCommand()
-  command.CommandText <- "
-    INSERT INTO todos (
-      id, title, content, completed, user_id
-    ) VALUES (
-      @id, @title, @content, @completed, @user_id
-    )
-  "
-  ignore <| command.Parameters.Add(command.CreateParameter(ParameterName="id", Value=System.Guid.NewGuid()))
-  ignore <| command.Parameters.Add(command.CreateParameter(ParameterName="title", Value=todo.Title))
-  ignore <| command.Parameters.Add(command.CreateParameter(ParameterName="content", Value=todo.Content))
-  ignore <| command.Parameters.Add(command.CreateParameter(ParameterName="completed", Value=todo.Completed))
-  ignore <| command.Parameters.Add(command.CreateParameter(ParameterName="user_id", Value=todo.User_id))
-  ignore <| command.ExecuteNonQuery()
-}
+// let addHouse (conn: NpgsqlConnection) (house:'T) (user:'A)= async {
+//   use command = conn.CreateCommand()
+//   command.CommandText <- "
+//     INSERT INTO todos (
+//       id, title, content, completed, user_id
+//     ) VALUES (
+//       @id, @title, @content, @completed, @user_id
+//     )
+//   "
+//   ignore <| command.Parameters.Add(command.CreateParameter(ParameterName="id", Value=System.Guid.NewGuid()))
+//   ignore <| command.Parameters.Add(command.CreateParameter(ParameterName="title", Value=todo.Title))
+//   ignore <| command.Parameters.Add(command.CreateParameter(ParameterName="content", Value=todo.Content))
+//   ignore <| command.Parameters.Add(command.CreateParameter(ParameterName="completed", Value=todo.Completed))
+//   ignore <| command.Parameters.Add(command.CreateParameter(ParameterName="user_id", Value=todo.User_id))
+//   ignore <| command.ExecuteNonQuery()
+// }

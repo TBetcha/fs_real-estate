@@ -1,4 +1,4 @@
-module Todo.Web.API.Routing
+module Cribs.Web.API.Routing
 
 open Giraffe
 open FSharp.Control.Tasks
@@ -13,8 +13,8 @@ let routes: HttpHandler =
       <| choose [
               subRoute "/users"
                   <| choose [
-                      route "/register" >=> Todo.Handlers.Users.userRegister 
-                      GET >=> routef  "/%s/get" Todo.Handlers.Users.getUserByUsername 
+                      route "/register" >=> Cribs.Handlers.Users.userRegister 
+                      GET >=> route "/get" >=> Cribs.Handlers.Users.getUserByUsername
                     ]
               subRoute "/v2"
                   <| choose [

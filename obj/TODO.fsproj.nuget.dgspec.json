@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "/Users/troyboettger/Code/F#/todo/TODO.fsproj",
-        "projectName": "todo.App",
+        "projectName": "cribs.App",
         "projectPath": "/Users/troyboettger/Code/F#/todo/TODO.fsproj",
         "packagesPath": "/Users/troyboettger/.nuget/packages/",
         "outputPath": "/Users/troyboettger/Code/F#/todo/obj/",
@@ -127,7 +127,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/5.0.204/libexec/sdk/5.0.204/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/5.0.206/libexec/sdk/5.0.206/RuntimeIdentifierGraph.json"
         }
       }
     }
