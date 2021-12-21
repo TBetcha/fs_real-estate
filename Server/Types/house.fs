@@ -1,7 +1,7 @@
 module Cribs.Types.House
 
 type Address = {
-  streedNum:string
+  streetNum:string
   city:string
   state:string
   zip:int
