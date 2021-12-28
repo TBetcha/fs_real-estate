@@ -19,7 +19,7 @@ let routes: HttpHandler =
               subRoute "/houses"
                   <| choose [
                       POST >=> routef  "/%s/add"  Cribs.Handlers.Houses.addHouse
-                      GET >=> route "/bar" >=> text "Bar 2" ] ]]
+                      GET >=> route "/bar" >=> text "ok...not really" ] ]]
 
 // let routes: HttpHandler =
 //     choose [

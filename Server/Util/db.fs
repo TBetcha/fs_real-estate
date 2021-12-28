@@ -26,7 +26,7 @@ let readerToDict (reader:System.Data.Common.DbDataReader) =
       |x -> yield (prefix+x,i)
   ]
   {|
-    getGuid=fun k -> reader.GetFieldValue<System.Guid>(mapping.[k])
+    getGuid=fun k -> reader.GetGuid(mapping.[k])
     getDate=fun k -> reader.GetFieldValue<NodaTime.LocalDate>(mapping.[k])
     getDateTime=fun k -> reader.GetFieldValue<NodaTime.ZonedDateTime>(mapping.[k])
     getDateTimeN=fun k -> if reader.IsDBNull(mapping.[k]) then None else Some (reader.GetFieldValue<NodaTime.ZonedDateTime>(mapping.[k]))

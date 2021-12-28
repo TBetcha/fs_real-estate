@@ -38,40 +38,37 @@ type IUserRepo() =
     ignore <| command.ExecuteNonQuery()
   }
 
-  // member _.getUser (conn: NpgsqlConnection) (user: uQuery):Async<User list>  = async  {
-  //   use command = conn.CreateCommand()
-  //   command.CommandText <- "
-  //   SELECT
-  //     id, first_name, last_name, username, password
-  //   FROM users
-  //   WHERE 1=1
-  //     AND username = @user
-  // "
-  //   ignore <| command.Parameters.Add(command.CreateParameter(ParameterName="user", Value=user.username))
-  //   use reader = command.ExecuteReader()
-  //   return  [
-  //       let record = Cribs.Util.DB.readerToDict reader
-  //       yield {
-  //         Id = record.getGuid("id") 
-  //         Username = record.getString("username") 
-  //         First_name = record.getString("first_name") 
-  //         Last_name = record.getString("last_name") 
-  //         Password = record.getString("first_name") 
-  //       }
-  //   ]
-  // } 
+  member _.getUser (conn: NpgsqlConnection) (user: string):Async<'T>  = async  {
+    use command = conn.CreateCommand()
+    command.CommandText <-"
+      SELECT
+        id, first_name, last_name, username, password
+      FROM users
+      WHERE 1=1
+        AND username = @user;
+    "
+    ignore <| command.Parameters.Add(command.CreateParameter(ParameterName="user", Value=user))
+    use reader = command.ExecuteReader()
+    let user = List.tryExactlyOne<|[
+      while reader.Read() do
+        let record = Cribs.Util.DB.readerToDict reader
+        yield {|
+          Id = record.getGuid("id")
+          Username = record.getString("username") 
+          First_name = record.getString("first_name") 
+          Last_name = record.getString("last_name") 
+        |}
+    ]
+    match  user  with
+    | Some  x -> return x
+    | None -> return! failwith "No user found" 
+  } 
 
-  // check Dapper but eh idk
-  member _.getUserByUsername  (conn:NpgsqlConnection) name= 
-    async {
-        let username = name
-        let command = "SELECT * from users where username = @username"
-        let param = dict ["username", box username]
-        return!  querySingleAsync conn command param
-    }
-
-    // let dataReader = command.ExecuteReader()
-    //   seq {
-    //       while dataReader.Read() do
-    //           yield [for i in [0..dataReader.FieldCount-1] -> dataReader.[i]]
-    //   } |> ignore
+  // Dapper 
+  // member _.getUserByUsername  (conn:NpgsqlConnection) name= 
+  //   async {
+  //       let username = name
+  //       let command = "SELECT * from users where username = @username"
+  //       let param = dict ["username", box username]
+  //       return!  querySingleAsync conn command param
+  //   }

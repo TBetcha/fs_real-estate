@@ -29,14 +29,14 @@ let getUserByUsername : HttpHandler =
         let dal = ctx.GetService<Cribs.DAL.User.IUserRepo>()
         let! temp = ctx.BindJsonAsync<userQuery>()
         let! res = db.WithConnection <| fun conn -> async {
-          let! retrievedUser = dal.getUserByUsername conn temp.username
+          let! retrievedUser = dal.getUser conn temp.username
           return  retrievedUser
         }
         return! ctx.WriteJsonAsync res
       }
   )
 
-//test
+// test for dapper
 // let getStuff : HttpHandler = 
 //   handleContext(
 //     fun ctx -> 
@@ -44,7 +44,7 @@ let getUserByUsername : HttpHandler =
 //         let db = ctx.GetService<Cribs.Util.DB.IConnectionFactory>()
 //         let dal = ctx.GetService<Cribs.DAL.User.IUserRepo>()
 //         let! res = db.WithConnection <| fun conn -> async {
-//           let! u = dal.getStuff conn "sdf"
+//             let! u = dal.getItem
 //           return u
 //         }
 //         return! ctx.WriteJsonAsync res

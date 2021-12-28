@@ -1,4 +1,3 @@
-/Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/todo.fsprojAssemblyReference.cache
 /Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/todo.AssemblyInfoInputs.cache
 /Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/todo.AssemblyInfo.fs
 /Users/troyboettger/Code/F#/todo/bin/Debug/net5.0/appsettings.json
@@ -45,7 +44,6 @@
 /Users/troyboettger/Code/F#/todo/bin/Debug/net5.0/cribs.App.dll
 /Users/troyboettger/Code/F#/todo/bin/Debug/net5.0/cribs.App.pdb
 /Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/staticwebassets/cribs.App.StaticWebAssets.Manifest.cache
-/Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/staticwebassets/cribs.App.StaticWebAssets.xml
 /Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/scopedcss/bundle/cribs.App.styles.css
 /Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/cribs.App.dll
 /Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/cribs.App.pdb
@@ -66,3 +64,5 @@
 /Users/troyboettger/Code/F#/todo/bin/Debug/net5.0/runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll
 /Users/troyboettger/Code/F#/todo/bin/Debug/net5.0/runtimes/win/lib/netstandard2.0/System.Security.AccessControl.dll
 /Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/cribs.App.dll.config
+/Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/TODO.fsprojAssemblyReference.cache
+/Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/staticwebassets/cribs.App.StaticWebAssets.xml

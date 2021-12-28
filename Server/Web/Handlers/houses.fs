@@ -14,12 +14,9 @@ let addHouse (x:string) : HttpHandler = fun  next ctx -> task {
   let dal = ctx.GetService<Cribs.DAL.House.IHouseRepo>()
   let db = ctx.GetService<Cribs.Util.DB.IConnectionFactory>()
   let! res = db.WithConnection <| fun conn  -> async {
-    let! user = ctx.GetService<Cribs.DAL.User.IUserRepo>().getUserByUsername conn x
-    match user with 
-    | Some y ->
-      let! x = dal.addHouse conn temp y
-      return x
-    | None -> return failwith "Cannot find user"
+    let! user = ctx.GetService<Cribs.DAL.User.IUserRepo>().getUser conn x  
+    let! x = dal.addHouse conn temp user.Id
+    return x
   }
   match res with 
   | 1  -> return! Successful.OK res next ctx
