@@ -2,7 +2,6 @@ module Cribs.DAL.User
 open Npgsql
 open BCrypt.Net
 open Cribs.Types.Users
-open Cribs.Types.House
 open Dapper
 
 
@@ -20,7 +19,7 @@ let inline (=>) a b = a, box b
 
 type IUserRepo() = 
 
-  member _.storeUser (conn:NpgsqlConnection) (user:'T) = async {
+  member _.storeUser (conn:NpgsqlConnection) (user:User) = async {
     let command = conn.CreateCommand()
     command.CommandText <- "
       INSERT INTO users (

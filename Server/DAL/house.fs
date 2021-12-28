@@ -6,7 +6,7 @@ open Cribs.Types.House
 
 type IHouseRepo () = 
 
-  member _.addHouse (conn: NpgsqlConnection) (house:'T) (userId:System.Guid)= async {
+  member _.addHouse (conn: NpgsqlConnection) (house:House) (userId:System.Guid)= async {
     use command = conn.CreateCommand()
     command.CommandText <- "
       INSERT INTO houses (

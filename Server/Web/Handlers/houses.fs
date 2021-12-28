@@ -1,8 +1,5 @@
 module Cribs.Handlers.Houses
-open System
 open FSharp.Control.Tasks
-open System.Linq
-open FSharp.Data
 open Giraffe
 
 

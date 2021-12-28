@@ -66,3 +66,4 @@
 /Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/cribs.App.dll.config
 /Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/TODO.fsprojAssemblyReference.cache
 /Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/staticwebassets/cribs.App.StaticWebAssets.xml
+/Users/troyboettger/Code/F#/todo/obj/Debug/net5.0/TODO.fsproj.CoreCompileInputs.cache
