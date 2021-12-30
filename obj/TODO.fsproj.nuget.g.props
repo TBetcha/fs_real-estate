@@ -45,6 +45,7 @@
     <PkgSystem_Runtime_Extensions Condition=" '$(PkgSystem_Runtime_Extensions)' == '' ">/Users/troyboettger/.nuget/packages/system.runtime.extensions/4.3.1</PkgSystem_Runtime_Extensions>
     <PkgSystem_Globalization Condition=" '$(PkgSystem_Globalization)' == '' ">/Users/troyboettger/.nuget/packages/system.globalization/4.3.0</PkgSystem_Globalization>
     <PkgSystem_Resources_ResourceManager Condition=" '$(PkgSystem_Resources_ResourceManager)' == '' ">/Users/troyboettger/.nuget/packages/system.resources.resourcemanager/4.3.0</PkgSystem_Resources_ResourceManager>
+    <PkgMicrosoft_CSharp Condition=" '$(PkgMicrosoft_CSharp)' == '' ">/Users/troyboettger/.nuget/packages/microsoft.csharp/4.7.0</PkgMicrosoft_CSharp>
     <PkgSystem_Diagnostics_Debug Condition=" '$(PkgSystem_Diagnostics_Debug)' == '' ">/Users/troyboettger/.nuget/packages/system.diagnostics.debug/4.3.0</PkgSystem_Diagnostics_Debug>
     <PkgSystem_Collections Condition=" '$(PkgSystem_Collections)' == '' ">/Users/troyboettger/.nuget/packages/system.collections/4.3.0</PkgSystem_Collections>
     <Pkgruntime_native_System Condition=" '$(Pkgruntime_native_System)' == '' ">/Users/troyboettger/.nuget/packages/runtime.native.system/4.3.1</Pkgruntime_native_System>
@@ -71,7 +72,7 @@
     <PkgMicrosoft_Extensions_Configuration Condition=" '$(PkgMicrosoft_Extensions_Configuration)' == '' ">/Users/troyboettger/.nuget/packages/microsoft.extensions.configuration/6.0.0</PkgMicrosoft_Extensions_Configuration>
     <PkgMicrosoft_Extensions_Configuration_FileExtensions Condition=" '$(PkgMicrosoft_Extensions_Configuration_FileExtensions)' == '' ">/Users/troyboettger/.nuget/packages/microsoft.extensions.configuration.fileextensions/6.0.0</PkgMicrosoft_Extensions_Configuration_FileExtensions>
     <PkgMicrosoft_Extensions_Configuration_Json Condition=" '$(PkgMicrosoft_Extensions_Configuration_Json)' == '' ">/Users/troyboettger/.nuget/packages/microsoft.extensions.configuration.json/5.0.0</PkgMicrosoft_Extensions_Configuration_Json>
-    <PkgMicrosoft_CSharp Condition=" '$(PkgMicrosoft_CSharp)' == '' ">/Users/troyboettger/.nuget/packages/microsoft.csharp/4.7.0</PkgMicrosoft_CSharp>
+    <PkgMicrosoft_AspNetCore_Authentication_JwtBearer Condition=" '$(PkgMicrosoft_AspNetCore_Authentication_JwtBearer)' == '' ">/Users/troyboettger/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/5.0.4</PkgMicrosoft_AspNetCore_Authentication_JwtBearer>
     <PkgGiraffe_ViewEngine Condition=" '$(PkgGiraffe_ViewEngine)' == '' ">/Users/troyboettger/.nuget/packages/giraffe.viewengine/1.4.0</PkgGiraffe_ViewEngine>
     <PkgGiraffe Condition=" '$(PkgGiraffe)' == '' ">/Users/troyboettger/.nuget/packages/giraffe/5.0.0-rc-6</PkgGiraffe>
     <Pkgdbup-core Condition=" '$(Pkgdbup-core)' == '' ">/Users/troyboettger/.nuget/packages/dbup-core/4.5.0</Pkgdbup-core>

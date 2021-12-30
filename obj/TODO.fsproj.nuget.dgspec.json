@@ -14,7 +14,7 @@
         "outputPath": "/Users/troyboettger/Code/F#/todo/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/troyboettger/.nuget/NuGet/NuGet.Config"
+          "/Users/troyboettger/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -69,6 +69,11 @@
             "Giraffe.ViewEngine": {
               "target": "Package",
               "version": "[1.4.0, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.4, )",
               "generatePathProperty": true
             },
             "Microsoft.CSharp": {
@@ -307,6 +312,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-x64",
+              "version": "[5.0.13, 5.0.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -315,7 +326,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/5.0.206/libexec/sdk/5.0.206/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
         }
       }
     }

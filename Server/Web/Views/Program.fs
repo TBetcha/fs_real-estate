@@ -2,17 +2,20 @@ module Cribs.Program
 
 open System
 open System.IO
+open System.Security.Claims
+open System.Text
 open Microsoft.AspNetCore.Builder
+open Microsoft.AspNetCore.Identity
 open Microsoft.AspNetCore.Cors.Infrastructure
 open Microsoft.AspNetCore.Hosting
 open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.Logging
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Configuration
+open Microsoft.AspNetCore.Authentication.JwtBearer
 open Giraffe
-//open Giraffe.Serialization.Json
+open Microsoft.IdentityModel.Tokens
 open Npgsql
-open NodaTime.Serialization.JsonNet
 open DbUp
 open DbUp.ScriptProviders
 
@@ -114,6 +117,7 @@ let configureApp (app : IApplicationBuilder) =
       app .UseGiraffeErrorHandler(errorHandler)
           .UseHttpsRedirection())
       .UseCors(configureCors)
+      .UseAuthentication()
       .UseStaticFiles()
       .UseGiraffe(Cribs.Web.API.Routing.routes)
 
@@ -122,6 +126,20 @@ let configureServices (services : IServiceCollection) : unit=
   let config = services.BuildServiceProvider().GetRequiredService<IConfiguration>()
   services.AddCors()    |> ignore
   services.AddGiraffe() |> ignore
+  services.AddAuthentication(fun options ->
+    options.DefaultAuthenticateScheme <- JwtBearerDefaults.AuthenticationScheme
+    options.DefaultChallengeScheme <- JwtBearerDefaults.AuthenticationScheme
+    ).AddJwtBearer(fun options ->
+    options.TokenValidationParameters <- TokenValidationParameters(
+      ValidateActor = true,
+      ValidateAudience = true,
+      ValidateLifetime=true,
+      ValidateIssuerSigningKey=true,
+      ValidIssuer = "cribs.app",
+      ValidAudience="cribs.app",
+      IssuerSigningKey=SymmetricSecurityKey(Encoding.UTF8.GetBytes("spadR2dre#u-ruBrE@TepA&*Uf@U")) )
+//      IssuerSigningKey=SymmetricSecurityKey(Encoding.UTF8.GetBytes(config.GetValue<string>("Secret"))) )
+    ) |> ignore
   printfn "Migrations: %A" <| dbUpgrade (config.GetConnectionString("conn"))
   printfn "%A" <|config.GetConnectionString("conn")
   // let serializer = NewtonsoftJsonSerializer.DefaultSettings
@@ -158,30 +176,3 @@ let main args =
       .Build()
       .Run()
   0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
