@@ -24,12 +24,12 @@ type IUserRepo() =
 
       command.CommandText <-
         "
-      INSERT INTO users (
-        id, username, password, first_name, last_name
-      ) VALUES (
-        @id, @username, @password, @first_name, @last_name
-      )
-    "
+        INSERT INTO users (
+          id, username, password, first_name, last_name
+        ) VALUES (
+          @id, @username, @password, @first_name, @last_name
+        )
+        "
 
       ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "id",Value = System.Guid.NewGuid()))
       ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "username",Value = user.Username))
@@ -45,12 +45,12 @@ type IUserRepo() =
 
       command.CommandText <-
         "
-      SELECT
-        id, first_name, last_name, username, password
-      FROM users
-      WHERE 1=1
-        AND username = @user;
-    "
+        SELECT
+          id, first_name, last_name, username, password
+        FROM users
+        WHERE 1=1
+          AND username = @user;
+        "
 
       ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "user",Value = user))
 
@@ -71,7 +71,25 @@ type IUserRepo() =
       | Some x -> return x
       | None -> return! failwith "No user found"
     }
-
+  member _.getUserPassword (conn: NpgsqlConnection) (user: string) : Async<string> =
+    async {
+      use command = conn.CreateCommand()
+      command.CommandText <-
+        "
+        SELECT
+          password
+        FROM users
+        WHERE 1=1
+          AND username = @user;
+        "
+      ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "user",Value = user))
+      use reader = command.ExecuteReader()
+      if reader.Read() then
+          let pw =  reader.[0]
+          return pw.ToString()
+      else return! failwith "cnt do it"
+      
+    }
 // Dapper
 // member _.getUserByUsername  (conn:NpgsqlConnection) name=
 //   async {

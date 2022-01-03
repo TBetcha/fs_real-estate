@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3YLDPcNypo2Ildtjho86uRJILuaJm0gOMipShuPehnbgcij1Yf3NE5C/laz1LGs4IQz67AQfxXO4bWa3ihhwoQ==",
+  "dgSpecHash": "bWhNyLkJ/wnOUX9aDUCalsnFG3rm/gkLYh7SUb2Q9OrDDydB+XpRdwPCm9VkMCrZZxEtLbjsuGqF4dO12KeeQw==",
   "success": true,
   "projectFilePath": "/Users/troyboettger/Code/F#/todo/TODO.fsproj",
   "expectedPackageFiles": [
@@ -67,8 +67,7 @@
     "/Users/troyboettger/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512",
     "/Users/troyboettger/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "/Users/troyboettger/.nuget/packages/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg.sha512",
-    "/Users/troyboettger/.nuget/packages/utf8json/1.3.7/utf8json.1.3.7.nupkg.sha512",
-    "/Users/troyboettger/.nuget/packages/microsoft.netcore.app.host.osx-x64/5.0.13/microsoft.netcore.app.host.osx-x64.5.0.13.nupkg.sha512"
+    "/Users/troyboettger/.nuget/packages/utf8json/1.3.7/utf8json.1.3.7.nupkg.sha512"
   ],
   "logs": []
 }
