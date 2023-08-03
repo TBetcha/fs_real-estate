@@ -1,9 +1,6 @@
 module Cribs.Handlers.Users
 
-open System
 open FSharp.Control.Tasks
-open System.Linq
-open FSharp.Data
 open Giraffe
 open Cribs.Types.Users
 
@@ -21,8 +18,12 @@ let userRegister: HttpHandler =
             let! storedUser = dal.storeUser conn user
             return storedUser
           }
-
-      return! ctx.WriteJsonAsync user
+      
+      match res with 
+      | Ok _ -> return! ctx.WriteJsonAsync user
+      | Error e -> 
+        ctx.SetStatusCode 400
+        return! ctx.WriteJsonAsync e
     })
 
 let getUserByUsername: HttpHandler =

@@ -32,22 +32,15 @@ type IUserRepo() =
         )
         "
 
-      ignore
-      <| command.Parameters.Add(command.CreateParameter(ParameterName = "id",Value = System.Guid.NewGuid()))
-
-      ignore
-      <| command.Parameters.Add(command.CreateParameter(ParameterName = "username",Value = user.Username))
-
-      ignore
-      <| command.Parameters.Add(command.CreateParameter(ParameterName = "password",Value = BCrypt.HashPassword user.Password))
-
-      ignore
-      <| command.Parameters.Add(command.CreateParameter(ParameterName = "first_name",Value = user.FirstName))
-
-      ignore
-      <| command.Parameters.Add(command.CreateParameter(ParameterName = "last_name",Value = user.LastName))
-
-      ignore <| command.ExecuteNonQuery()
+      ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "id",Value = System.Guid.NewGuid()))
+      ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "username",Value = user.Username))
+      ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "password",Value = BCrypt.HashPassword user.Password))
+      ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "first_name",Value = user.FirstName))
+      ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "last_name",Value = user.LastName))
+      let resp = command.ExecuteNonQuery()
+      match resp with 
+      | 1 -> return Ok "User persisted"
+      | _ -> return Error "User not persisted"
     }
 
   member _.getUser (conn: NpgsqlConnection) (user: string) : Async<'T> =
