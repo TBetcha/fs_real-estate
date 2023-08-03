@@ -37,8 +37,8 @@ type IUserRepo() =
       ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "password",Value = BCrypt.HashPassword user.Password))
       ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "first_name",Value = user.FirstName))
       ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "last_name",Value = user.LastName))
-      let resp = command.ExecuteNonQuery()
-      match resp with 
+     
+      match command.ExecuteNonQuery() with 
       | 1 -> return Ok "User persisted"
       | _ -> return Error "User not persisted"
     }
