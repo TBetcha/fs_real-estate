@@ -3,6 +3,7 @@ module Cribs.DAL.User
 open Npgsql
 open BCrypt.Net
 open Cribs.Types.Users
+open Todo.Util.Types
 open Dapper
 
 
@@ -31,11 +32,21 @@ type IUserRepo() =
         )
         "
 
-      ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "id",Value = System.Guid.NewGuid()))
-      ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "username",Value = user.Username))
-      ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "password",Value = BCrypt.HashPassword user.Password))
-      ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "first_name",Value = user.First_name))
-      ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "last_name",Value = user.Last_name))
+      ignore
+      <| command.Parameters.Add(command.CreateParameter(ParameterName = "id",Value = System.Guid.NewGuid()))
+
+      ignore
+      <| command.Parameters.Add(command.CreateParameter(ParameterName = "username",Value = user.Username))
+
+      ignore
+      <| command.Parameters.Add(command.CreateParameter(ParameterName = "password",Value = BCrypt.HashPassword user.Password))
+
+      ignore
+      <| command.Parameters.Add(command.CreateParameter(ParameterName = "first_name",Value = user.FirstName))
+
+      ignore
+      <| command.Parameters.Add(command.CreateParameter(ParameterName = "last_name",Value = user.LastName))
+
       ignore <| command.ExecuteNonQuery()
     }
 
@@ -62,18 +73,20 @@ type IUserRepo() =
                let record = Cribs.Util.DB.readerToDict reader
 
                yield
-                 {| Id = record.getGuid ("id")
-                    Username = record.getString ("username")
-                    First_name = record.getString ("first_name")
-                    Last_name = record.getString ("last_name") |} ]
+                 { Id = record.getGuid ("id")
+                   Username = record.getString ("username")
+                   FirstName = record.getString ("first_name")
+                   LastName = record.getString ("last_name") } ]
 
       match user with
       | Some x -> return x
       | None -> return! failwith "No user found"
     }
+
   member _.getUserPassword (conn: NpgsqlConnection) (user: string) : Async<string> =
     async {
       use command = conn.CreateCommand()
+
       command.CommandText <-
         "
         SELECT
@@ -84,11 +97,13 @@ type IUserRepo() =
         "
       ignore <| command.Parameters.Add(command.CreateParameter(ParameterName = "user",Value = user))
       use reader = command.ExecuteReader()
+
       if reader.Read() then
-          let pw =  reader.[0]
-          return pw.ToString()
-      else return! failwith "cnt do it"
-      
+        let pw = reader.[0]
+        return pw.ToString()
+      else
+        return! failwith "cnt do it"
+
     }
 // Dapper
 // member _.getUserByUsername  (conn:NpgsqlConnection) name=

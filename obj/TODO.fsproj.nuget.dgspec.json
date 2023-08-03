@@ -1,30 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/troyboettger/Code/F#/todo/TODO.fsproj": {}
+    "/Users/tmb/Code/F#/FsRealEstate/TODO.fsproj": {}
   },
   "projects": {
-    "/Users/troyboettger/Code/F#/todo/TODO.fsproj": {
+    "/Users/tmb/Code/F#/FsRealEstate/TODO.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/troyboettger/Code/F#/todo/TODO.fsproj",
+        "projectUniqueName": "/Users/tmb/Code/F#/FsRealEstate/TODO.fsproj",
         "projectName": "cribs.App",
-        "projectPath": "/Users/troyboettger/Code/F#/todo/TODO.fsproj",
-        "packagesPath": "/Users/troyboettger/.nuget/packages/",
-        "outputPath": "/Users/troyboettger/Code/F#/todo/obj/",
+        "projectPath": "/Users/tmb/Code/F#/FsRealEstate/TODO.fsproj",
+        "packagesPath": "/Users/tmb/.nuget/packages/",
+        "outputPath": "/Users/tmb/Code/F#/FsRealEstate/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/troyboettger/.nuget/NuGet/NuGet.Config"
+          "/Users/tmb/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net6.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "/Users/tmb/.dotnet/sdk/7.0.203/FSharp/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/divisionsinc/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -38,8 +40,8 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "BCrypt.Net-Next": {
               "target": "Package",
@@ -308,7 +310,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -320,7 +323,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/5.0.206/libexec/sdk/5.0.206/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/tmb/.dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
         }
       }
     }
